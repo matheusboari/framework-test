@@ -1,0 +1,103 @@
+{
+  "extends": [
+    "prettier",
+    "plugin:import/typescript",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "prettier"],
+  "parserOptions": {
+    "ecmaVersion": 10,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "modules": true
+    }
+  },
+  "include": [
+    "**/src/**/*.ts",
+    "**/__tests__/**/*.ts"
+  ],
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true,
+        "directory": "./tsconfig.json"
+      },
+      "node": {
+        "extensions": [".js", ".ts"]
+      }
+    },
+    "import/extensions": [".js", ".ts"]
+  },
+  "env": {
+    "node": true,
+    "jest": true
+  },
+  "rules": {
+    "object-curly-newline": "off",
+    "no-underscore-dangle": [
+      2,
+      {
+        "allow": ["_id", "__"]
+      }
+    ],
+    "no-param-reassign": [
+      2,
+      {
+        "props": false
+      }
+    ],
+    "max-len": [
+      2,
+      {
+        "code": 120,
+        "ignoreComments": true,
+        "ignoreRegExpLiterals": true,
+        "ignoreTemplateLiterals": true,
+        "ignoreStrings": true
+      }
+    ],
+    "implicit-arrow-linebreak": 0,
+    "import/no-dynamic-require": 0,
+    "no-await-in-loop": 0,
+    "no-plusplus": 0,
+    "no-restricted-syntax": 0,
+    "no-mixed-operators": 0,
+    "@typescript-eslint/camelcase": 0,
+    "class-methods-use-this": 0,
+    "comma-dangle": [
+      2,
+      {
+        "functions": "never"
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": ["**/*.test.ts", "**/*.spec.ts", "jest.*"]
+      }
+    ],
+    "@typescript-eslint/no-unused-vars": ["error"],
+    "@typescript-eslint/adjacent-overload-signatures": ["error"],
+    "@typescript-eslint/interface-name-prefix": ["error", "always"],
+    "@typescript-eslint/member-ordering": ["error"],
+    "@typescript-eslint/no-namespace": ["error"],
+    "@typescript-eslint/no-require-imports": ["error"],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "mjs": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "import/prefer-default-export": "off",
+    "no-useless-constructor": "off"
+  }
+}
